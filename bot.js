@@ -20,6 +20,7 @@ client.on('message', message => {
     if (message.content === 'hook') {
     	// Create a new webhook
 const hook = new Discord.WebhookClient('webhook id', 'webhook token');
+  message.reply('BONG!');
 
 // Send a message using the webhook
 hook.send(message);
