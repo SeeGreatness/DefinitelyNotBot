@@ -23,7 +23,7 @@ const hook = new Discord.WebhookClient('webhook id', 'webhook token');
   message.reply('BONG!');
 
 // Send a message using the webhook
-hook.send(message);
+hook.send("Hook is here!");
   	}
 });
 
