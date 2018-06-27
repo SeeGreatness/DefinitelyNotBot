@@ -3,15 +3,37 @@ const client = new Discord.Client();
 const config = require("config.json");
 // config.token contains the bot's token
 
+
+
+
+
+
+
+// The ready event is vital, it means that your bot will only start reacting to information
+// from Discord _after_ ready is emitted
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully.
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
   // Example of changing the bot's playing game to something useful. `client.user` is what the
   // docs refer to as the "ClientUser".
-  client.user.setActivity(`Serving ${client.guilds.size} servers`);
+  client.user.setActivity(`getting laid ;)');
 });
-
-
+// Create an event listener for messages
+client.on('message', message => {
+  // If the message is "ping"
+  if (message.content === 'ping') {
+    // Send "pong" to the same channel
+    message.channel.send('pong');
+  }
+});
+// Create an event listener for messages
+client.on('message', message => {
+  // If the message is "+profile"
+  if (message.content === 'what is my avatar') {
+    // Send the user's avatar URL
+    message.reply(message.author.avatarURL);
+  }
+});
 
 // Create an event listener for new guild members
 client.on('guildMemberAdd', member => {
