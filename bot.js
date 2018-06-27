@@ -71,7 +71,7 @@ client.on("message", (message) => {
   }else
   if (message.content.startsWith(prefix + 'online')) {
        // Restrict a command to a specific user by ID
-  if (message.author.id !== '360894787785719809') return;
+  if (message.author.id !== '360894787785719809' or '271394014358405121' or '438418186677911553') return;
     message.channel.sendMessage("UP AND RUNNING!"); // send running message into the channel where the message was sent
 
 }
