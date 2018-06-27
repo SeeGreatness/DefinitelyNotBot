@@ -24,29 +24,24 @@ client.on("ready", () => {
 // Create an event listener for messages
 client.on("message", (message) => {
   // Exit and stop if it doesn't have the prefix
-  if (message.content === "ping") {
+  if (message.content.startsWith(prefix + "ping")||message.content === "ping") {
     message.channel.send("pong!");
   } else
-  if (message.content.startsWith(prefix + "foo")) {
+  if (message.content.startsWith(prefix + "foo")||message.content === "foo") {
     message.channel.send("bar!");
   }else
     // if  message is '<prefix> profile'
-  if (message.content.startsWith(prefix + "profile")) {
+  if (message.content.startsWith(prefix + "profile")||message.content === "profile") {
     // Send the user's avatar URL
     message.reply(message.author.avatarURL);
   }else
-  if (message.content.startsWith(prefix + "prefix")) {
+  if (message.content.startsWith(prefix + "prefix")||message.content === "prefix") {
       message.reply("My Prefix is "+prefix);
     message.channel.send("But keep in mind that pollux also uses this prefix");
     message.channel.send("she also has a alternative prefix p!");
   }else
-  if (message.content.startsWith(prefix + "kick")) {
+  if (message.content.startsWith(prefix + "kick")||message.content === "kick") {
     message.channel.send('kicking?');
-  }else
-  if (message.content.startsWith(prefix + "?RESET")) {
-    // Send "RESETING!!!" to the same channel
-    message.channel.send('RESETING!!!');
-    resetBot(message.channel);
   }else
   if (message.content.startsWith(prefix + "!RESET")) {
    // send channel a message that you're resetting bot [optional]
@@ -71,7 +66,7 @@ client.on("message", (message) => {
   }else
   if (message.content.startsWith(prefix + 'online')) {
        // Restrict a command to a specific user by ID
-  if (message.author.id !== '360894787785719809' or '271394014358405121' or '438418186677911553') return;
+  if (message.author.id !== '360894787785719809' || '271394014358405121' || '438418186677911553') return;
     message.channel.sendMessage("UP AND RUNNING!"); // send running message into the channel where the message was sent
 
 }
