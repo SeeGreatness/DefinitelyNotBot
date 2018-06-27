@@ -13,7 +13,7 @@ client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully
       client.user.setStatus("online");
       client.user.setGame("Type !help");
-      client.user.setActivity({game: {name: "with my code", type: 0}});
+      //client.user.setActivity({game: {name: "with my code", type: 0}});
       client.user.setPresence({ status: 'online', game: { name: 'with my code' } });
 
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
@@ -63,7 +63,7 @@ client.on("message", (message) => {
   // Restrict a command to a specific user by ID
   if (message.author.id !== '360894787785719809') return;
   // my Commands Here *not yours because ^^^^^^ is me and not you
-  bot.user.setGame('GAME HERE')
+  bot.user.setGame('yo momma')
   }else    
   if (message.content.startsWith(prefix + "bot")){ // when message is !bot
       message.channel.sendMessage("UP AND RUNNING!"); // send running message into the channel where the message was sent
