@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const token = process.env.BOT_TOKEN //this is a environment variable that i have with my host so that i dont need to share my token to the public XD
 const prefix = "!"; // Set the prefix
 const responseObject = {
   "ayy": "Ayy, lmao!",
@@ -108,4 +109,4 @@ function resetBot(channel) {
 }
 
 // THIS  MUST  BE  THIS  WAY
-client.login(process.env.BOT_TOKEN);
+client.login(token);
