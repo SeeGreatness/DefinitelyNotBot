@@ -23,7 +23,7 @@ client.on("ready", () => {
 // Create an event listener for messages
 client.on("message", (message) => {
   // Exit and stop if it doesn't have the prefix
-  if (message.content === "ping")) {
+  if (message.content === "ping") {
     message.channel.send("pong!");
   } else
   if (message.content.startsWith(prefix + "foo")) {
