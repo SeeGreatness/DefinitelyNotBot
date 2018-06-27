@@ -10,7 +10,9 @@ const prefix = "!"; // Set the prefix
 // The ready event is vital, it means that your bot will only start reacting to information
 // from Discord _after_ ready is emitted
 client.on("ready", () => {
-  // This event will run if the bot starts, and logs in, successfully.
+  // This event will run if the bot starts, and logs in, successfully
+      client.user.setStatus("online");
+      client.user.setActivity({game: {name: "with my code", type: 0}});
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
   
 });
@@ -45,10 +47,19 @@ client.on("message", (message) => {
   }else
   if (message.content.startsWith(prefix + "!RESET")) {
    // send channel a message that you're resetting bot [optional]
-     message.channel.send('Resetting...')
+    message.channel.send('NOPE XD not for you!!...')
+
+  }else  
+    // Restrict a command to a specific user by ID
+if (message.content.startsWith(prefix + 'RESET')) {
+    if (message.author.id !== '360894787785719809') return;
+    // my Commands Here *not yours because ^^^^^^ is me and not you
+   message.channel.send('Resetting...')
     .then(msg => client.destroy())
     .then(() => client.login(process.env.BOT_TOKEN));
-  }else  
+}
+    
+    
     message.channel.send("Unknown Command");
 
 });
