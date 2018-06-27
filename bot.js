@@ -1,7 +1,10 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-// config.token contains the bot's token
 
+
+const config = require('config.js');
+// config.token contains the bot's token
+//config.prefix contains the bot's prefix
 
 
 
