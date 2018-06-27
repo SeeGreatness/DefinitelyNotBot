@@ -55,9 +55,8 @@ client.on("message", (message) => {
     if (message.author.id !== '360894787785719809') return;
     // my Commands Here *not yours because ^^^^^^ is me and not you
    message.channel.send('Resetting...');
-    .then(msg => client.destroy());
-    .then(() => client.login(process.env.BOT_TOKEN));
-}else
+   resetBot(message.channel);
+  }else
   if (message.content.startsWith(prefix + "bot")){ // when message is !bot
         message.channel.sendMessage("UP AND RUNNING!"); // send running message into the channel where the message was sent
     }else
