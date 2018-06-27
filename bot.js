@@ -1,7 +1,11 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = "!"; // Set the prefix
-
+const responseObject = {
+  "ayy": "Ayy, lmao!",
+  "wat": "Say what?",
+  "lol": "roflmaotntpmp"
+};
 //const config = require('config.js'); //this causes errors (if you know where this file is PLEASE let me know!!! or how to link to another file here on github XD
 // config.token contains the bot's token
 //config.prefix contains the bot's prefix
