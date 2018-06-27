@@ -47,19 +47,20 @@ client.on("message", (message) => {
   }else
   if (message.content.startsWith(prefix + "!RESET")) {
    // send channel a message that you're resetting bot [optional]
-    message.channel.send('NOPE XD not for you!!...')
+    message.channel.send('NOPE XD not for you!!...');
 
   }else  
-    // Restrict a command to a specific user by ID
-if (message.content.startsWith(prefix + 'RESET')) {
+  if (message.content.startsWith(prefix + 'RESET')) {
+  // Restrict a command to a specific user by ID
     if (message.author.id !== '360894787785719809') return;
     // my Commands Here *not yours because ^^^^^^ is me and not you
-   message.channel.send('Resetting...')
-    .then(msg => client.destroy())
+   message.channel.send('Resetting...');
+    .then(msg => client.destroy());
     .then(() => client.login(process.env.BOT_TOKEN));
-}
-    
-    
+}else
+  if (message.content.startsWith(prefix + "bot")){ // when message is !bot
+        message.channel.sendMessage("UP AND RUNNING!"); // send running message into the channel where the message was sent
+    }else
     message.channel.send("Unknown Command");
 
 });
