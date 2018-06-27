@@ -12,6 +12,7 @@ const prefix = "!"; // Set the prefix
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully
       client.user.setStatus("online");
+      client.user.setGame("Type !help");
       client.user.setActivity({game: {name: "with my code", type: 0}});
       client.user.setPresence({ status: 'online', game: { name: 'with my code' } });
 
