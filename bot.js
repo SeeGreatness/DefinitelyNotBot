@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 
-//const config = require('config.js'); //this causes errors (if you know where this file is PLEASE let me know!!!
+//const config = require('config.js'); //this causes errors (if you know where this file is PLEASE let me know!!! or how to link to another file here on github XD
 // config.token contains the bot's token
 //config.prefix contains the bot's prefix
 
@@ -49,16 +49,49 @@ client.on("guildCreate", guild => {
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
   client.user.setActivity("hello!");
 });
+
+
+// Create an event listener for messages
+client.on('message', message => {
+  // If the message is "+profile"
+  if (message.content === 'prefix') {
+    // Send the user's avatar URL
+    message.reply("The Prefix for this bot is +");
+    message.channel.send("But keep in mind that pollux also uses this prefix");
+    message.channel.send("she also has a alternative prefix p!");
+  }
+});
+// Create an event listener for messages
+client.on('message', message => {
+  // If the message is "ping"
+  if (message.content === 'kick') {
+    // Send "pong" to the same channel
+    message.channel.send('');
+  }
+});
+
+// Create an event listener for messages
+client.on('message', message => {
+  // If the message is "?RESET"
+  if (message.content === '?RESET') {
+    // Send "RESETING!!!" to the same channel
+    message.channel.send('RESETING!!!');
+    resetBot(message.channel);
+
+  }
+});
+
+
 // set message listener 
 client.on('message', message => {
     switch(message.content.toUpperCase()) {
         case '?RESET':
-            resetBot(message.channel);
             break;
-
+             message.channel.send('Resetting.')
         // ... other commands
     }
 });
+
 
 // Turn bot off (destroy), then turn it back on
 function resetBot(channel) {
