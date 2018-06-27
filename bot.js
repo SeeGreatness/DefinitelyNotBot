@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const config = require("config.json");
 // config.token contains the bot's token
 
 
@@ -14,9 +13,7 @@ const config = require("config.json");
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully.
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-  // Example of changing the bot's playing game to something useful. `client.user` is what the
-  // docs refer to as the "ClientUser".
-  client.user.setActivity(`getting laid ;)');
+  
 });
 // Create an event listener for messages
 client.on('message', message => {
@@ -47,7 +44,7 @@ client.on('guildMemberAdd', member => {
 client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-  client.user.setActivity(`Serving ${client.guilds.size} servers`);
+  client.user.setActivity("hello!");
 });
 // set message listener 
 client.on('message', message => {
