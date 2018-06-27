@@ -69,8 +69,11 @@ client.on("message", (message) => {
   if (message.author.id !== '360894787785719809' || '271394014358405121' || '438418186677911553') return;
     message.channel.sendMessage("UP AND RUNNING!"); // send running message into the channel where the message was sent
 
-}
-  if(message.content==''){
+}else 
+  if(responseObject[message.content]) {
+    message.channel.send(responseObject[message.content]);
+  }else
+  if(message.content==null){
     message.channel.send("Unknown Command");
   }
 });
