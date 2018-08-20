@@ -56,7 +56,9 @@ client.on("ready", () => {
 }else 
   if(command === "owner"){
     message.reply("my owner is SeeGreatness");
-  }
+  }else
+    if(command === "wtf"){
+message.channel.send('WTF <@234802370507309056>')}
 });
 
 
@@ -72,7 +74,7 @@ client.on("message", (message) => {
     message.channel.send("bar!");
   }else
     // if  message is '<prefix> profile'
-  if (message.content.startsWith(prefix + "profile")||message.content === "profile") {
+  if (message.content.startsWith(prefix + "profile")||message.content === "+profile") {
     // Send the user's avatar URL
     message.reply(message.author.avatarURL);
   }else
