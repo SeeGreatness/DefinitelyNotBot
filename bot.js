@@ -57,7 +57,7 @@ client.on("ready", () => {
   if(command === "owner"){
     message.reply("my owner is SeeGreatness");
   }else
-    if(command === "wtf"){
+    if(command === "wtf"||message.content==="wtf"||message.content==="WTF"){
 message.channel.send('WTF <@234802370507309056>')}
 });
 
