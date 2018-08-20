@@ -26,6 +26,39 @@ client.on("ready", () => {
   
 });
 
+//adding new code to replace the current command system
+  client.on("message", message => {
+  if (message.author.bot) return;
+  // This is where we'll put our code.
+  if (message.content.indexOf(prefix) !== 0) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
+
+  if(command === 'ping') {
+    message.channel.send('Pong!');
+  } else
+  if (command === 'blah') {
+    message.channel.send('Meh.');
+  }else
+  if (command === 'foo') {
+    message.channel.send("pong!");
+  }else
+    if(command === "kick") {
+  let member = message.mentions.members.first();
+  let reason = args.slice(1).join(" ");
+  member.kick(reason);
+}else
+  if(command === "say"){
+  let text = args.slice(1).join(" ");
+  message.delete();
+  message.channel.send(text);
+}
+});
+
+
+
+//done adding code
 // Create an event listener for messages
 client.on("message", (message) => {
   // Exit and stop if it doesn't have the prefix
