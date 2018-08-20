@@ -53,7 +53,10 @@ client.on("ready", () => {
   let text = args.slice(1).join(" ");
   message.delete();
   message.channel.send(text);
-}
+}else 
+  if(command === "owner"){
+    message.reply("my owner is SeeGreatness");
+  }
 });
 
 
