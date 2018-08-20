@@ -7,6 +7,13 @@ const responseObject = {
   "wat": "Say what?",
   "lol": "roflmaotntpmp"
 };
+
+var location
+var pokemon
+var raidTemplate = "A "+pokemon+" Raid Is About To Start In "+time+" At The "+location"
+
+
+
 //const config = require('config.js'); //this causes errors (if you know where this file is PLEASE let me know!!! or how to link to another file here on github XD
 // config.token contains the bot's token
 //config.prefix contains the bot's prefix
@@ -50,15 +57,24 @@ client.on("ready", () => {
   member.kick(reason);
 }else
   if(command === "say"){
-  let text = args.slice(1).join(" ");
+  let text = args.slice(0).join(" ");
   message.delete();
   message.channel.send(text);
 }else 
   if(command === "owner"){
     message.reply("my owner is SeeGreatness");
   }else
-    if(command === "wtf"||message.content==="wtf"||message.content==="WTF"){
+    if(command === "wtf"){
 message.channel.send('WTF <@234802370507309056>')}
+    else
+      if(command==="raid"){
+        
+        
+        let text = args.slice(0).join(" ");
+          message.delete();
+          message.channel.send(text);
+        
+      }
 });
 
 
