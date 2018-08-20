@@ -8,9 +8,9 @@ const responseObject = {
   "lol": "roflmaotntpmp"
 };
 
-var location
-var pokemon
-var raidTemplate = "A "+pokemon+" Raid Is About To Start In "+time+" At The "+location"
+//var location
+//var pokemon
+//var raidTemplate = "A "+pokemon+" Raid Is About To Start In "+time+" At The "+location"
 
 
 
@@ -68,9 +68,7 @@ client.on("ready", () => {
 message.channel.send('WTF <@234802370507309056>')}
     else
       if(command==="raid"){
-        
-        
-        let text = args.slice(0).join(" ");
+        let text = args.slice(1).join(" ");
           message.delete();
           message.channel.send(text);
         
