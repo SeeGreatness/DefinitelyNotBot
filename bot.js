@@ -5,7 +5,9 @@ const prefix = "!"; // Set the prefix
 const responseObject = {
   "ayy": "Ayy, lmao!",
   "wat": "Say what?",
-  "lol": "roflmaotntpmp"
+  "lol": "roflmaotntpmp",
+  "invite":"http://www.tinyurl.com/PokemonGoAITrainer",
+  "!invite":"http://www.tinyurl.com/PokemonGoAITrainer"
 };
 
 //var location
