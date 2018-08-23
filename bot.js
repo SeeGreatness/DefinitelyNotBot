@@ -6,8 +6,9 @@ const responseObject = {
   "ayy": "Ayy, lmao!",
   "wat": "Say what?",
   "lol": "roflmaotntpmp",
-  "invite":"http://www.tinyurl.com/PokemonGoAITrainer",
-  "!invite":"http://www.tinyurl.com/PokemonGoAITrainer"
+  "!Invite":"http://www.tinyurl.com/PokemonGoAITrainer",
+  "!invite":"http://www.tinyurl.com/PokemonGoAITrainer",
+  "!pad":"*puts you in a nice padded diaper*"
 };
 
 //var location
