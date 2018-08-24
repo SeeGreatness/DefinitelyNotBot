@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const token = process.env.BOT_TOKEN //this is a environment variable that i have with my host so that i dont need to share my token to the public XD
+const token = process.env.BOT_TOKEN;
+//this is a environment variable that i have with my host so that i dont need to share my token to the public XD
 const prefix = "!"; // Set the prefix
 var sides = 6;
 
@@ -21,8 +22,8 @@ var diapers = {
 };
 function randomNumber(sides){
  var ranNumber = Math.floor(Math.random() * sides) + 1; 
-  return RanNumber
-};
+  return RanNumber;
+}
 
 
 const responseObject = {
@@ -129,19 +130,26 @@ client.on("message", (message) => {
    // send channel a message that you're resetting bot [optional]
     message.channel.send('NOPE XD not for you!!...');
 
-  }else  
+  }else
+  if (message.content === '!rip') {
+     // If the message is '!rip'
+     // Create the attachment using Attachment
+     const attachment = new Attachment('https://i.imgur.com/w3duR07.png');
+     // Send the attachment in the message channel
+     message.channel.send(attachment);
+  }else
   if (message.content.startsWith(prefix + 'RESET')) {
   // Restrict a command to a specific user by ID
-    if (message.author.id !== '360894787785719809') return;
-    // my Commands Here *not yours because ^^^^^^ is me and not you
-   message.channel.send('Resetting...');
-   resetBot(message.channel);
+  if (message.author.id !== '360894787785719809') return;
+  // my Commands Here *not yours because ^^^^^^ is me and not you
+  message.channel.send('Resetting...');
+  resetBot(message.channel);
   }else
   if (message.content.startsWith(prefix + 'setgame')) {
   // Restrict a command to a specific user by ID
   if (message.author.id !== '360894787785719809') return;
   // my Commands Here *not yours because ^^^^^^ is me and not you
-  bot.user.setGame('yo momma')
+  bot.user.setGame('yo momma');
   }else    
   if (message.content.startsWith(prefix + "bot")){ // when message is !bot
       message.channel.sendMessage("UP AND RUNNING!"); // send running message into the channel where the message was sent
@@ -151,11 +159,17 @@ client.on("message", (message) => {
   if (message.author.id !== '360894787785719809' || '271394014358405121' || '438418186677911553') return;
     message.channel.sendMessage("UP AND RUNNING!"); // send running message into the channel where the message was sent
 
-}else 
+}else
+  if(message.content.startsWith(prefix + "setgame1")){// when message is !setgame1
+      bot.user.setGame('yo momma');
+  }else
+  if(message.content.startsWith(prefix + "setgame2")){// when message is !setgame2
+  client.user.setActivity("Playing: your momn!");
+  }else
   if(responseObject[message.content]) {
     message.channel.send(responseObject[message.content]);
   }else
-  if(message.content==null){
+  if(message.content===null){
     message.channel.send("Unknown Command");
   }
 });
