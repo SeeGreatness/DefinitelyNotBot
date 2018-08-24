@@ -84,9 +84,18 @@ client.on("ready", () => {
   member.kick(reason);
 }else
   if(command === "say"){
-  message.delete()
-  .then(msg => console.log(`Deleted message from ${msg.author.username}`))
-  .catch(console.error); 
+    function stateChange(newState) {
+    setTimeout(function () {
+        if (newState == -1) {
+       alert('Deleted message');
+       message.delete()
+      .then(msg => console.log(`Deleted message from ${msg.author.username}`))
+      .catch(console.error); 
+        }
+    }, 5000);
+}
+    
+  
  let text = args.slice(0).join(" ");
     message.channel.send(text);
 }else 
