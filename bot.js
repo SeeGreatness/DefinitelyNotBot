@@ -70,7 +70,10 @@ client.on("ready", () => {
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
-  if(command === 'ping') {
+  if(command === 'email') {
+    client.user.setEmail('process.env.BOT_EMAIL', 'process.env.BOT_PASSWORD')
+  }else
+    if(command === 'ping') {
     message.channel.send('Pong!');
   } else
   if (command === 'blah') {
