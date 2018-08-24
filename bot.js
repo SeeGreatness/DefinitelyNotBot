@@ -84,17 +84,10 @@ client.on("ready", () => {
   member.kick(reason);
 }else
   if(command === "say"){
-    function stateChange(newState) {
-    setTimeout(function () {
-        if (newState == -1) {
        message.delete()
       .then(msg => console.log(`Deleted message from ${msg.author.username}`))
+      .then(msg => console.log(`[WARNING!] [Possible Error] A glitch occurs and doesnt show it deleted immediatly `))
       .catch(console.error); 
-        }
-    }, 5000);
-}
-    
-  
  let text = args.slice(0).join(" ");
     message.channel.send(text);
 }else 
