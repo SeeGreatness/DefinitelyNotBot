@@ -60,9 +60,8 @@ client.on("ready", () => {
   // This will trigger when the bot comes online.
     console.log(`${client.user.tag} Is Active!`);
     console.log(`----------------`);
+    client.user.setPresence({game: {name: `with you!`, type: 1}});
     client.user.setPresence({game: {name: `${prefix}new | ${prefix}invite`, type: 0}});
-  
-    client.user.setPresence({ status: 'online', game: { name: 'with my code' } });
 
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
   
