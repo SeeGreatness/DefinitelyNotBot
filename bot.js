@@ -84,9 +84,11 @@ client.on("ready", () => {
   member.kick(reason);
 }else
   if(command === "say"){
-  let text = args.slice(0).join(" ");
-  message.delete();
-  message.channel.send(text);
+  message.delete()
+  .then(msg => console.log(`Deleted message from ${msg.author.username}`))
+  .catch(console.error); 
+ let text = args.slice(0).join(" ");
+    message.channel.send(text);
 }else 
   if(command === "owner"){
     message.reply("my owner is SeeGreatness");
