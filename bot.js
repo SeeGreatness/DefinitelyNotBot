@@ -2,6 +2,29 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const token = process.env.BOT_TOKEN //this is a environment variable that i have with my host so that i dont need to share my token to the public XD
 const prefix = "!"; // Set the prefix
+var sides = 6;
+
+var diapers = {
+  "1": "Lil Monsters",
+  "2": "Goodnites",
+  "3": "Depends",
+  "4": "Tena",
+  "5": "Prevail",
+  "6": "Abena",
+  "7": "Molicare",
+  "8": "Dignity",
+  "9": "Wearing Clouds",
+  "10": "Magnifico Dino",
+  "11": "Mambino",
+  "12": "Peekabu",
+  "13": "Overnights"
+};
+function randomNumber(sides){
+ var ranNumber = Math.floor(Math.random() * sides) + 1; 
+  return RanNumber
+};
+
+
 const responseObject = {
   "ayy": "Ayy, lmao!",
   "wat": "Say what?",
@@ -70,8 +93,7 @@ client.on("ready", () => {
     if(command === "wtf"){
 message.channel.send('WTF <@234802370507309056>')}
     else
-      if(command==="raid"){
-        let text = args.slice(1).join(" ");
+      if(command==="change"){
           message.delete();
           message.channel.send(text);
         
