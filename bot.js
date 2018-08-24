@@ -87,7 +87,6 @@ client.on("ready", () => {
        message.delete();
       console.log(`Deleted message from ${msg.author.username}`);
       console.log(`[WARNING!] [Possible Error] A glitch occurs and doesnt show it deleted immediatly `);
-      .catch(console.error); 
  let text = args.slice(0).join(" ");
     message.channel.send(text);
 }else 
