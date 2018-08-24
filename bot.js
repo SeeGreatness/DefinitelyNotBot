@@ -33,7 +33,9 @@ const responseObject = {
   "lol": "roflmaotntpmp",
   "!Invite":"http://www.tinyurl.com/PokemonGoAITrainer",
   "!invite":"http://www.tinyurl.com/PokemonGoAITrainer",
-  "!pad":"*puts you in a nice padded diaper*"
+  "!pad":"*puts you in a nice padded diaper*",
+  "RAPE":"https://goo.gl/images/br7sis"
+
 };
 
 //var location
@@ -52,7 +54,7 @@ const responseObject = {
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully
       // Set the bot's online/idle/dnd/invisible status
-      client.user.setStatus("online");
+      client.user.setStatus("idle");
       client.user.setGame("Type !help");
       //client.user.setActivity({game: {name: "with my code", type: 0}});
       client.user.setPresence({ status: 'online', game: { name: 'with my code' } });
