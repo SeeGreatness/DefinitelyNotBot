@@ -161,9 +161,6 @@ client.on('message', message => {
   //if (message.channel.type === 'dm'){
     //return message.reply ("You cannot use my commands in DMs!") 
   //}else
-    if(command === 'email') {
-    client.user.setEmail('process.env.BOT_EMAIL', 'process.env.BOT_PASSWORD')
-  }else
     if(command === 'ping') {
 message.channel.send('Pinging...').then(async (msg) => {
             const embed = {
