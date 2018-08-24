@@ -69,8 +69,6 @@ client.on("ready", () => {
 });
 
 //stuff that might break stuffs
-client.on('message',message=>{if(message.content==='Ping?'){message.channel.send('Pinging...').then(async(msg)=>{const embed={"title":"Pong!","description":"🏓","color":65393,"timestamp":new Date(),"footer":{"icon_url":client.user.displayAvatarURL,"text":client.user.tag},"author":{"name":message.author.tag,"icon_url":message.author.displayAvatarURL},"fields":[{"name":"Bot Latency","value":`${msg.createdTimestamp - message.createdTimestamp} ms`,"inline":!0},{"name":"API Latency","value":`${Math.round(client.ping)} ms`,"inline":!0},{"name":"What does this mean?","value":`This means that the bot took ${msg.createdTimestamp - message.createdTimestamp} ms to respond to your command, and it took ${Math.round(client.ping)} ms for Discord API. This is the speed at which the bot responds to you, after you sent your command.`}]};await msg.edit({embed})})}})
-
 client.on('message', message => {
     if(message.content === prefix + "deletechannel"){
        
@@ -153,8 +151,37 @@ client.on('message', message => {
     client.user.setEmail('process.env.BOT_EMAIL', 'process.env.BOT_PASSWORD')
   }else
     if(command === 'ping') {
-         message.channel.send(new Date().getTime() - message.createdTimestamp + " ms");
-  } else
+message.channel.send('Pinging...').then(async (msg) => {
+            const embed = {
+                "title": "Pong!",
+                "description": "🏓",
+                "color": 65393,
+                "timestamp": new Date(),
+                "footer": {
+                    "icon_url": client.user.displayAvatarURL,
+                    "text": client.user.tag
+                },
+                "author": {
+                    "name": message.author.tag,
+                    "icon_url": message.author.displayAvatarURL
+                },
+                "fields": [{
+                    "name": "Bot Latency",
+                    "value": `${msg.createdTimestamp - message.createdTimestamp} ms`,
+                    "inline": !0
+                }, {
+                    "name": "API Latency",
+                    "value": `${Math.round(client.ping)} ms`,
+                    "inline": !0
+                }, {
+                    "name": "What does this mean?",
+                    "value": `This means that the bot took ${msg.createdTimestamp - message.createdTimestamp} ms to respond to your command, and it took ${Math.round(client.ping)} ms for Discord API. This is the speed at which the bot responds to you, after you sent your command.`
+                }]
+            };
+            await msg.edit({
+                embed
+            })
+        })  } else
   if (command === 'blah') {
     
     message.channel.send('Meh.');
