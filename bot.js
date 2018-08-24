@@ -57,7 +57,12 @@ client.on("ready", () => {
       client.user.setStatus("idle");
       client.user.setGame("Type !help");
       //client.user.setActivity({game: {name: "with my code", type: 0}});
-      client.user.setPresence({ status: 'online', game: { name: 'with my code' } });
+  // This will trigger when the bot comes online.
+    console.log(`${client.user.tag} Is Active!`);
+    console.log(`----------------`);
+    client.user.setPresence({game: {name: `${prefix}new | ${prefix}invite`, type: 0}});
+  
+    client.user.setPresence({ status: 'online', game: { name: 'with my code' } });
 
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
   
@@ -71,8 +76,10 @@ client.on("ready", () => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-
-  if(command === 'email') {
+  if (message.channel.type === 'dm'){
+    return message.reply ("You cannot use my commands in DMs!") 
+  }else
+    if(command === 'email') {
     client.user.setEmail('process.env.BOT_EMAIL', 'process.env.BOT_PASSWORD')
   }else
     if(command === 'ping') {
@@ -106,7 +113,29 @@ message.channel.send('WTF <@234802370507309056>')}
           message.delete();
           message.channel.send(text);
         
-      }
+      }else
+       if (command === "eval") {
+       if(message.author.id !== "360894787785719809") { return message.channel.send (`You do not have permission to use this, ${message.author}, you silly billy!`) };
+// Clean
+const clean = text => {
+  if (typeof(text) === "string")
+    return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+  else
+      return text;
+}
+// End it
+          try {
+          const code = args.join(" ");
+          let evaled = eval(code);
+
+          if (typeof evaled !== "string")
+            evaled = require("util").inspect(evaled);
+
+            message.channel.send(`__**Output**__\n\n` + `\`\`\`js\n` + clean(evaled) + `\`\`\``);
+          } catch (err) {
+            message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+          }
+    }
 });
 
 
@@ -196,9 +225,12 @@ client.on('guildMemberAdd', member => {
 client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-  client.user.setActivity("hello!");
 });
-
+client.on("guildDelete", guild => {
+  // this event triggers when the bot is removed from a guild.
+  console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
+    
+});
 // Turn bot off (destroy), then turn it back on
 function resetBot(channel) {
     // send channel a message that you're resetting bot [optional]
