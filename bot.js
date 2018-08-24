@@ -87,7 +87,6 @@ client.on("ready", () => {
     function stateChange(newState) {
     setTimeout(function () {
         if (newState == -1) {
-       alert('Deleted message');
        message.delete()
       .then(msg => console.log(`Deleted message from ${msg.author.username}`))
       .catch(console.error); 
