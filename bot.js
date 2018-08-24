@@ -68,6 +68,76 @@ client.on("ready", () => {
   
 });
 
+//stuff that might break stuffs
+client.on('message',message=>{if(message.content==='Ping?'){message.channel.send('Pinging...').then(async(msg)=>{const embed={"title":"Pong!","description":"🏓","color":65393,"timestamp":new Date(),"footer":{"icon_url":client.user.displayAvatarURL,"text":client.user.tag},"author":{"name":message.author.tag,"icon_url":message.author.displayAvatarURL},"fields":[{"name":"Bot Latency","value":`${msg.createdTimestamp - message.createdTimestamp} ms`,"inline":!0},{"name":"API Latency","value":`${Math.round(client.ping)} ms`,"inline":!0},{"name":"What does this mean?","value":`This means that the bot took ${msg.createdTimestamp - message.createdTimestamp} ms to respond to your command, and it took ${Math.round(client.ping)} ms for Discord API. This is the speed at which the bot responds to you, after you sent your command.`}]};await msg.edit({embed})})}})
+
+client.on('message', message => {
+    if(message.content === prefix + "deletechannel"){
+       
+        message.channel.delete(1000);
+        
+    }
+});
+client.on('message', message => {
+    if (message.content.startsWith(prefix + 'hpmeme')) {
+    if(index == meme.length - 1){
+          shuffle(meme);
+          index2 = 0;
+      } 
+      const embed = new Discord.RichEmbed()
+           .setTitle("Harry Potter Meme")
+           .setColor(getRandomColor())
+           .setDescription("Here is your Harry Potter meme! :smile: :fire:")
+           .setImage(meme[index2])
+           .setFooter("PizzaBot", "http://thecookielife.com/wp-content/uploads/2018/04/pizza-cartoon-cute-pizza-stickers-detourshirts-redbubble-space-clipart.jpg")
+      message.channel.send({embed});
+      index2++;
+    }
+});
+
+//potentialy helpfull things but still dangerouse
+bot.on('error', (err) => {
+    console.log("————— BIG ERROR —————");
+    console.log(err);
+    console.log("——— END BIG ERROR ———");
+});
+
+bot.on("disconnected", () => {
+	console.log("Disconnected!");
+});
+//end of helpful but harmful stuff
+
+
+
+//end of potentialy harmfull things
+
+
+
+
+//not harmfull but still needs to be implemented properly
+client.on('message', message => {
+    if (message.content === 'xD') {
+    	message.channel.send('aye b whats so funny eh*');
+  	}
+});
+client.on('message', message => {
+    if (message.content === '.') {
+    	message.reply('you gonna put me on hold like that?');
+  	}
+});
+client.on('message', message => {
+    if (message.content === 'nothing') {
+    	message.channel.send('thats what i thought');
+  	}
+});
+
+client.on('message', message => {
+    if (message.content === '+bal') {
+    	message.channel.send('stop it you aint rich');
+  	}
+});
+
+//end of line 117
 //adding new code to replace the current command system
   client.on("message", message => {
   if (message.author.bot) return;
@@ -83,9 +153,10 @@ client.on("ready", () => {
     client.user.setEmail('process.env.BOT_EMAIL', 'process.env.BOT_PASSWORD')
   }else
     if(command === 'ping') {
-    message.channel.send('Pong!');
+         message.channel.send(new Date().getTime() - message.createdTimestamp + " ms");
   } else
   if (command === 'blah') {
+    
     message.channel.send('Meh.');
   }else
   if (command === 'foo') {
