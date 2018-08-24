@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const bot = client;
 const token = process.env.BOT_TOKEN;
 //this is a environment variable that i have with my host so that i dont need to share my token to the public XD
 const prefix = "!"; // Set the prefix
