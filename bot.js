@@ -54,17 +54,13 @@ const responseObject = {
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully
       // Set the bot's online/idle/dnd/invisible status
-      client.user.setStatus("idle");
-      client.user.setGame("Type !help");
-      //client.user.setActivity({game: {name: "with my code", type: 0}});
-  // This will trigger when the bot comes online.
+     
+client.on("ready", () => {	
+    client.user.setStatus("idle");
     console.log(`${client.user.tag} Is Active!`);
     console.log(`----------------`);
     client.user.setPresence({game: {name: `with you!`, type: 1}});
-    client.user.setPresence({game: {name: `${prefix}new | ${prefix}invite`, type: 0}});
-
-  console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-  
+    console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
 });
 
 //stuff that might break stuffs
@@ -200,10 +196,18 @@ message.channel.send('Pinging...').then(async (msg) => {
                 embed
             })
         })  } else
-  if (command === 'blah') {
-    
-    message.channel.send('Meh.');
-  }else
+  if (message.content.toLowerCase().startsWith(prefix + `eval`)) {
+    if(message.author.id !== "360894787785719809") return;
+    try {
+      const code = args.join(" ");
+      let evaled = eval(code);
+      if (typeof evaled !== "string")
+        evaled = require("util").inspect(evaled);
+      message.channel.send(clean(evaled), {code:"xl"});
+    } catch (err) {
+      message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+    }
+}else
   if (command === 'foo') {
     message.channel.send("pong!");
   }else
