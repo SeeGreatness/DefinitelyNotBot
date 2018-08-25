@@ -1,3 +1,3 @@
-worker: node bot.js
-worker: node EvilBot.js
+DiscordBot: node bot.js
+EvilBot: node EvilBot.js
 web: index.html
