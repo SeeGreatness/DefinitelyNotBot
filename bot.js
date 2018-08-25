@@ -3,6 +3,9 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const bot = client;
 //                                                                    //_________________ INITIALIZATION _________________\\
+var prefix = "!";
+var botowner = "360894787785719809";
+
 client.on("ready", () => {
     client.user.setStatus("idle");
     console.log(`${client.user.tag} Is Active!`);
