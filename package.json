@@ -1,11 +1,10 @@
 {
-  "name": "DefinitelyNotBot",
-  "description": "A Discord bot coded in Discord.JS, hosted using Heroku.",
+  "name": "SeeGreatness Bot",
+  "description": "A bot Created by SeeGreatness",
   "version": "1.0.0",
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js",
-    "start":"index.php"
+    "start": "node bot.js"
   },
   "dependencies": {
     "discord.js": "11.1.0",
