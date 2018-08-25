@@ -51,7 +51,6 @@ const responseObject = {
 
 // The ready event is vital, it means that your bot will only start reacting to information
 // from Discord _after_ ready is emitted
-client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully
       // Set the bot's online/idle/dnd/invisible status
      
