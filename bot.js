@@ -6,7 +6,7 @@ const bot = client;
 
 var prefix = "=";
 //var rolePrefix="&";
-var TOKEN=process.env.INDEV_TOKEN;
+var TOKEN=process.env.EVILBOT_TOKEN;
 
 //                                    //______ MEMBER ID's ______\\
 //bot owner
