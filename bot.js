@@ -6,21 +6,7 @@ const token = process.env.BOT_TOKEN;
 const prefix = "!"; // Set the prefix
 var sides = 6;
 
-var diapers = {
-  "1": "Lil Monsters",
-  "2": "Goodnites",
-  "3": "Depends",
-  "4": "Tena",
-  "5": "Prevail",
-  "6": "Abena",
-  "7": "Molicare",
-  "8": "Dignity",
-  "9": "Wearing Clouds",
-  "10": "Magnifico Dino",
-  "11": "Mambino",
-  "12": "Peekabu",
-  "13": "Overnights"
-};
+
 function randomNumber(sides){
  var ranNumber = Math.floor(Math.random() * sides) + 1; 
   return RanNumber;
@@ -33,7 +19,6 @@ const responseObject = {
   "lol": "roflmaotntpmp",
   "!Invite":"http://www.tinyurl.com/PokemonGoAITrainer",
   "!invite":"http://www.tinyurl.com/PokemonGoAITrainer",
-  "!pad":"*puts you in a nice padded diaper*",
   "RAPE":"https://goo.gl/images/br7sis"
 
 };
