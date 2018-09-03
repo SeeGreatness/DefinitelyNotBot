@@ -1,7 +1,6 @@
-
 {
-  "token": "insert-bot-token-here",
-  "prefix": "!",
+  "token": "process.env.BOT_TOKEN",
+  "prefix": "process.env.Prefix",
   "ownerID": "360894787785719809",
   "DevServerID":"461180999984873480",
   "BotSpam1":"461543911748534272",
