@@ -1,153 +1,151 @@
-const Discord = require('discord.js');
+//                                                                    //_________________ DEPENDENCYS _________________\\
+const Discord = require("discord.js");
 const client = new Discord.Client();
 const bot = client;
-const token = process.env.BOT_TOKEN;
-//this is a environment variable that i have with my host so that i dont need to share my token to the public XD
-const prefix = "!"; // Set the prefix
-var sides = 6;
+const config = require("./config.json");
+//                                                                    //_________________ INITIALIZATION _________________\\
 
-var diapers = {
-  "1": "Lil Monsters",
-  "2": "Goodnites",
-  "3": "Depends",
-  "4": "Tena",
-  "5": "Prevail",
-  "6": "Abena",
-  "7": "Molicare",
-  "8": "Dignity",
-  "9": "Wearing Clouds",
-  "10": "Magnifico Dino",
-  "11": "Mambino",
-  "12": "Peekabu",
-  "13": "Overnights"
+const token = config.token; // Set the token
+const prefix = config.token; // Set the prefix
+const BotName = config.BotName // Set the current Bot Name
+
+//                                                                    //_________________EVENTS_________________\\
+  //event listener for when the bot is ready
+client.on("ready", () => {
+    client.user.setStatus("idle");
+    console.log(`${client.user.tag} Is Active!`);
+    console.log(`----------------`);
+    client.user.setPresence({game: {name: `with you!`, type: 1}});
+    console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
+});
+  // Create an event listener for new guild members
+client.on('guildMemberAdd', member => {
+  // Send the message to a designated channel on a server:
+  const channel = member.guild.channels.find('name', 'member-log');
+  // Do nothing if the channel wasn't found on this server
+  if (!channel) return;
+  // Send the message, mentioning the member
+  channel.send(`Hey! ${member}, Welcome to the server! right now everyone is like this guy right now--> :fukinpingme: lol`);
+  client.user.setActivity("Playing: your momn!");
+  console.log(`New member joined: ${guild.name} (id: ${guild.id}). This guild now has ${guild.memberCount} members!`);
+
+});
+
+client.on("guildCreate", guild => {
+  // This event triggers when the bot joins a guild.
+  console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
+});
+
+client.on("guildDelete", guild => {
+  // this event triggers when the bot is removed from a guild.
+  console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
+});
+//                                                                    //_________________ Events Untested _________________\\
+
+client.on('error', (err) => {
+    console.log("————— BIG ERROR —————");
+    console.log(err);
+    console.log("——— END BIG ERROR ———");
+});
+
+client.on("disconnected", () => {
+	console.log("Disconnected!");
+});
+//                                                                    //_________________ VARIABLES _________________\\
+
+const responseObject = {
+  "xD":"aye b whats so funny eh*",
+  "ayy": "Ayy, lmao!",
+  "wat": "Say what?",
+  "lol": "roflmao",
+  "invite":"https://tinyurl.com/DiscordPlugPe",
+  "Invite":"https://tinyurl.com/DiscordPlugPe",
+  "!Invite":"http://www.tinyurl.com/DiscordPlugPe",
+  "!invite":"http://www.tinyurl.com/DiscordPlugPe",
+  "RAPE":"https://goo.gl/images/br7sis",
+  ".":"you gonna put me on hold like that?",
+  "nothing":"thats what i thought",
+  "+bal":"stop it you aint rich",
+  "bal":"stop it you aint rich"
 };
+
+// "!Invite":"http://www.tinyurl.com/PokemonGoAITrainer","!invite":"http://www.tinyurl.com/PokemonGoAITrainer",
+
+
+//                                                                    //_________________ FUNCTIONS _________________\\
+
 function randomNumber(sides){
  var ranNumber = Math.floor(Math.random() * sides) + 1; 
   return RanNumber;
 }
 
 
-const responseObject = {
-  "ayy": "Ayy, lmao!",
-  "wat": "Say what?",
-  "lol": "roflmaotntpmp",
-  "!Invite":"http://www.tinyurl.com/PokemonGoAITrainer",
-  "!invite":"http://www.tinyurl.com/PokemonGoAITrainer",
-  "!pad":"*puts you in a nice padded diaper*",
-  "RAPE":"https://goo.gl/images/br7sis"
+//hi
 
-};
+//                                                                    //_________________ COmmands _________________\\
 
-//var location
-//var pokemon
-//var raidTemplate = "A "+pokemon+" Raid Is About To Start In "+time+" At The "+location"
-
-
-
-//const config = require('config.js'); //this causes errors (if you know where this file is PLEASE let me know!!! or how to link to another file here on github XD
-// config.token contains the bot's token
-//config.prefix contains the bot's prefix
-
-
-// The ready event is vital, it means that your bot will only start reacting to information
-// from Discord _after_ ready is emitted
-client.on("ready", () => {
-  // This event will run if the bot starts, and logs in, successfully
-      // Set the bot's online/idle/dnd/invisible status
-     
-client.on("ready", () => {	
-    client.user.setStatus("idle");
-    console.log(`${client.user.tag} Is Active!`);
-    console.log(`----------------`);
-    client.user.setPresence({game: {name: `with you!`, type: 1}});
-    console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-});
-
-//stuff that might break stuffs
-client.on('message', message => {
-    if(message.content === prefix + "deletechannel"){
-       
-        message.channel.delete(1000);
-        
-    }
-});
-client.on('message', message => {
-    if (message.content.startsWith(prefix + 'hpmeme')) {
-    if(index == meme.length - 1){
-          shuffle(meme);
-          index2 = 0;
-      } 
-      const embed = new Discord.RichEmbed()
-           .setTitle("Harry Potter Meme")
-           .setColor(getRandomColor())
-           .setDescription("Here is your Harry Potter meme! :smile: :fire:")
-           .setImage(meme[index2])
-           .setFooter("PizzaBot", "http://thecookielife.com/wp-content/uploads/2018/04/pizza-cartoon-cute-pizza-stickers-detourshirts-redbubble-space-clipart.jpg")
-      message.channel.send({embed});
-      index2++;
-    }
-});
-
-client.on('message', message => {
-  if (message.content === '!play') {
-    // Note that this will only work if the message was sent in a guild
-    // and the author is actually in a voice channel.
-    // You might want to check for all that stuff first
-    const channel = message.member.voiceChannel;
-
-    channel.join()
-    .then(connection => console.log('Connected!'))
-    .catch(console.error);
+client.on("message", (message) => {
+    if (!message.content.startsWith(prefix) return;
+      if (message.author.bot) return;
+	if (message.channel.type === "dm") return;
+//if the message is not in a DM and the message is not from a bot...
+	
+//                                  //_________________ RESPONSE OBJECT _________________\\
+  
+ if(responseObject[message.content]) {
+    message.channel.send(responseObject[message.content]);
   }
-});
+//                                  //_________________ HELP _________________\\
+
+  if (message.content.toLowerCase().startsWith(prefix + `help1`)) {
+    const embed = new Discord.RichEmbed()
+    .setTitle(`:mailbox_with_mail: PlugPE Bot Help`)
+    .setColor(0xCF40FA)
+    .setDescription(`Hello! I'm PlugPE Bot, the Discord bot for super cool support ticket stuff and more! Here are my commands:`)
+    .addField(`Tickets`, `[${prefix}new]() > Opens up a new ticket and tags the Support Team\n[${prefix}close]() > Closes a ticket that has been resolved or been opened by accident`)
+	    .addField(`Other`, `[${prefix}help]() > Shows you this help menu you're reading, use [${prefix}help2] for modern help \n[${prefix}ping]() > Pings the bot to see how long it takes to react\n[${prefix}about]() > Tells you all about ME`);
+    message.channel.send({ embed: embed });
+  }
+    if (message.content.toLowerCase().startsWith(prefix +`help2`)) {
+    const embed = new Discord.RichEmbed()
+    .setTitle(`:mailbox_with_mail: PlugPE Bot Help`)
+    .setColor(0xCF40FA)
+    .setDescription(`Hello! I'm PlugPE Bot, the Discord bot for super cool support ticket stuff and more! Here are my commands:`)
+    .addField(`commands`, `[${prefix}hpmeme]() > Fetches a Harry Potter Meme`)
+    .addField(`Utilitys`, `[${prefix}help]() > Shows you this help menu you're reading use [${prefix}help1] for less modern help\n[${prefix}ping]() > Pings the bot to see how long it takes to react\n[${prefix}invite]() > Fetches my Invite Link so you can invite me to your server!`);
+    message.channel.send({ embed: embed }); 
+  }
+	
+//                                  //_________________ INVITE _________________\\
+
+  if (message.content.toLowerCase().startsWith(prefix + `invite`)) {
+    const embed = new Discord.RichEmbed()
+    .setTitle(`:thumbsup: Invite ${BotName}`)
+    .setColor(0xCF40FA)
+    .setDescription(`Thank you so much for choosing me! You can invite me at https://discordapp.com/oauth2/authorize?client_id=485273857905655818&scope=bot&permissions=8`);
+    message.channel.send({ embed: embed });
+  }
+	
+	
+}
+	  
+client.on("message", (message) => {
+  if (message.channel.type === "dm"){
+     if (message.author.bot) return;
+//if the message is in a DM and the message is not from the bot...
+  message.channel.send('hi');	  
+
+  }
+}
 
 
 
 
-//potentialy helpfull things but still dangerouse
-
-
-
-bot.on('error', (err) => {
-    console.log("————— BIG ERROR —————");
-    console.log(err);
-    console.log("——— END BIG ERROR ———");
-});
-
-bot.on("disconnected", () => {
-	console.log("Disconnected!");
-});
-//end of helpful but harmful stuff
-
-
-
-//end of potentialy harmfull things
 
 
 
 
-//not harmfull but still needs to be implemented properly
-client.on('message', message => {
-    if (message.content === 'xD') {
-    	message.channel.send('aye b whats so funny eh*');
-  	}
-});
-client.on('message', message => {
-    if (message.content === '.') {
-    	message.reply('you gonna put me on hold like that?');
-  	}
-});
-client.on('message', message => {
-    if (message.content === 'nothing') {
-    	message.channel.send('thats what i thought');
-  	}
-});
-
-client.on('message', message => {
-    if (message.content === '+bal') {
-    	message.channel.send('stop it you aint rich');
-  	}
-});
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 
 //end of line 117
 //adding new code to replace the current command system
@@ -158,41 +156,7 @@ client.on('message', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-  //if (message.channel.type === 'dm'){
-    //return message.reply ("You cannot use my commands in DMs!") 
-  //}else
-    if(command === 'ping') {
-message.channel.send('Pinging...').then(async (msg) => {
-            const embed = {
-                "title": "Pong!",
-                "description": "🏓",
-                "color": 65393,
-                "timestamp": new Date(),
-                "footer": {
-                    "icon_url": client.user.displayAvatarURL,
-                    "text": client.user.tag
-                },
-                "author": {
-                    "name": message.author.tag,
-                    "icon_url": message.author.displayAvatarURL
-                },
-                "fields": [{
-                    "name": "Bot Latency",
-                    "value": `${msg.createdTimestamp - message.createdTimestamp} ms`,
-                    "inline": !0
-                }, {
-                    "name": "API Latency",
-                    "value": `${Math.round(client.ping)} ms`,
-                    "inline": !0
-                }, {
-                    "name": "What does this mean?",
-                    "value": `This means that the bot took ${msg.createdTimestamp - message.createdTimestamp} ms to respond to your command, and it took ${Math.round(client.ping)} ms for Discord API. This is the speed at which the bot responds to you, after you sent your command.`
-                }]
-            };
-            await msg.edit({
-                embed
-            })
-        })  } else
+ 
   if (message.content.toLowerCase().startsWith(prefix + `eval`)) {
     if(message.author.id !== "360894787785719809") return;
     try {
@@ -205,9 +169,6 @@ message.channel.send('Pinging...').then(async (msg) => {
       message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
     }
 }else
-  if (command === 'foo') {
-    message.channel.send("pong!");
-  }else
     if(command === "kick") {
   let member = message.mentions.members.first();
   let reason = args.slice(1).join(" ");
@@ -215,23 +176,68 @@ message.channel.send('Pinging...').then(async (msg) => {
 }else
   if(command === "say"){
        message.delete();
-     // console.log(`Deleted message from ${msg.author.username}`);
-     //console.log(`[WARNING!] [Possible Error] A glitch occurs and doesnt show it deleted immediatly `);
  let text = args.slice(0).join(" ");
     message.channel.send(text);
-}else 
-  if(command === "owner"){
-    message.reply("my owner is SeeGreatness");
-  }else
-    if(command === "wtf"){
-message.channel.send('WTF <@234802370507309056>')}
-    else
-      if(command==="change"){
-          message.delete();
-          message.channel.send(text);
-        
+	  
       }else
-       if (command === "eval") {
+  if(command === "say") {
+    // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
+    // To get the "message" itself we join the `args` back into a string with spaces: 
+    const sayMessage = args.join(" ");
+    // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
+    message.delete().catch(O_o=>{}); 
+    // And we get the bot to say the thing: 
+    message.channel.send(sayMessage);
+  }
+  
+  if(command === "kick") {
+    // This command must be limited to mods and admins. In this example we just hardcode the role names.
+    // Please read on Array.some() to understand this bit: 
+    // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/some?
+    if(!message.member.roles.some(r=>["Administrator", "Moderator"].includes(r.name)) )
+      return message.reply("Sorry, you don't have permissions to use this!");
+    
+    // Let's first check if we have a member and if we can kick them!
+    // message.mentions.members is a collection of people that have been mentioned, as GuildMembers.
+    // We can also support getting the member by ID, which would be args[0]
+    let member = message.mentions.members.first() || message.guild.members.get(args[0]);
+    if(!member)
+      return message.reply("Please mention a valid member of this server");
+    if(!member.kickable) 
+      return message.reply("I cannot kick this user! Do they have a higher role? Do I have kick permissions?");
+    
+    // slice(1) removes the first part, which here should be the user mention or ID
+    // join(' ') takes all the various parts to make it a single string.
+    let reason = args.slice(1).join(' ');
+    if(!reason) reason = "No reason provided";
+    
+    // Now, time for a swift kick in the nuts!
+    await member.kick(reason)
+      .catch(error => message.reply(`Sorry ${message.author} I couldn't kick because of : ${error}`));
+    message.reply(`${member.user.tag} has been kicked by ${message.author.tag} because: ${reason}`);
+
+  }
+  
+  if(command === "ban") {
+    // Most of this command is identical to kick, except that here we'll only let admins do it.
+    // In the real world mods could ban too, but this is just an example, right? ;)
+    if(!message.member.roles.some(r=>["Administrator"].includes(r.name)) )
+      return message.reply("Sorry, you don't have permissions to use this!");
+    
+    let member = message.mentions.members.first();
+    if(!member)
+      return message.reply("Please mention a valid member of this server");
+    if(!member.bannable) 
+      return message.reply("I cannot ban this user! Do they have a higher role? Do I have ban permissions?");
+
+    let reason = args.slice(1).join(' ');
+    if(!reason) reason = "No reason provided";
+    
+    await member.ban(reason)
+      .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : ${error}`));
+    message.reply(`${member.user.tag} has been banned by ${message.author.tag} because: ${reason}`);
+  }
+	 if (command === "eval") {
        if(message.author.id !== "360894787785719809") { return message.channel.send (`You do not have permission to use this, ${message.author}, you silly billy!`) };
 // Clean
 const clean = text => {
@@ -257,34 +263,14 @@ const clean = text => {
 
 
 
-//done adding code
-// Create an event listener for messages
+// Create an event listener for other kinds of commands messages
 client.on("message", (message) => {
-  // Exit and stop if it doesn't have the prefix
-  if (message.content.startsWith(prefix + "ping")||message.content === "ping") {
-    message.channel.send("pong!");
-  } else
-  if (message.content.startsWith(prefix + "foo")||message.content === "foo") {
-    message.channel.send("bar!");
-  }else
-    // if  message is '<prefix> profile'
+      // if  message is '<prefix> profile'
   if (message.content.startsWith(prefix + "profile")||message.content === "+profile") {
     // Send the user's avatar URL
     message.reply(message.author.avatarURL);
   }else
-  if (message.content.startsWith(prefix + "prefix")||message.content === "prefix") {
-      message.reply("My Prefix is "+prefix);
-    message.channel.send("But keep in mind that pollux also uses this prefix");
-    message.channel.send("she also has a alternative prefix p!");
-  }else
-  if (message.content.startsWith(prefix + "kick")||message.content === "kick") {
-    message.channel.send('kicking?');
-  }else
-  if (message.content.startsWith(prefix + "!RESET")) {
-   // send channel a message that you're resetting bot [optional]
-    message.channel.send('NOPE XD not for you!!...');
 
-  }else
   if (message.content === '!rip') {
      // If the message is '!rip'
      // Create the attachment using Attachment
@@ -298,35 +284,9 @@ client.on("message", (message) => {
   // my Commands Here *not yours because ^^^^^^ is me and not you
   message.channel.send('Resetting...');
   resetBot(message.channel);
-  }else
-  if (message.content.startsWith(prefix + 'setgame')) {
-  // Restrict a command to a specific user by ID
-  if (message.author.id !== '360894787785719809') return;
-  // my Commands Here *not yours because ^^^^^^ is me and not you
-  bot.user.setGame('yo momma');
-  }else    
-  if (message.content.startsWith(prefix + "bot")){ // when message is !bot
-      message.channel.sendMessage("UP AND RUNNING!"); // send running message into the channel where the message was sent
-  }else
-  if (message.content.startsWith(prefix + 'online')) {
-       // Restrict a command to a specific user by ID
-  if (message.author.id !== '360894787785719809' || '271394014358405121' || '438418186677911553') return;
-    message.channel.sendMessage("UP AND RUNNING!"); // send running message into the channel where the message was sent
-
-}else
-  if(message.content.startsWith(prefix + "setgame1")){// when message is !setgame1
-      bot.user.setGame('yo momma');
-  }else
-  if(message.content.startsWith(prefix + "setgame2")){// when message is !setgame2
-  client.user.setActivity("Playing: your momn!");
-  }else
-  if(responseObject[message.content]) {
-    message.channel.send(responseObject[message.content]);
-  }else
-  if(message.content===null){
-    message.channel.send("Unknown Command");
   }
 });
+
 // Create an event listener for new guild members
 client.on('guildMemberAdd', member => {
   // Send the message to a designated channel on a server:
@@ -348,13 +308,7 @@ client.on("guildDelete", guild => {
   console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
     
 });
-// Turn bot off (destroy), then turn it back on
-function resetBot(channel) {
-    // send channel a message that you're resetting bot [optional]
-    channel.send('Resetting...')
-    .then(msg => client.destroy())
-    .then(() => client.login(process.env.BOT_TOKEN));
-}
 
-// THIS  MUST  BE  THIS  WAY
+
+// THIS  MUST  BE  THIS  WAY XD 
 client.login(token);
