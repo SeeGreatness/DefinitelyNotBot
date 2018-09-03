@@ -7,7 +7,7 @@ const config = require("./config.json");
 
 const token = config.token; // Set the token
 const prefix = config.token; // Set the prefix
-const BotName = config.BotName // Set the current Bot Name
+const BotName = config.BotName; // Set the current Bot Name
 
 //                                                                    //_________________EVENTS_________________\\
   //event listener for when the bot is ready
@@ -85,7 +85,7 @@ function randomNumber(sides){
 //                                                                    //_________________ COmmands _________________\\
 
 client.on("message", (message) => {
-    if (!message.content.startsWith(prefix) return;
+    if (!message.content.startsWith(prefix) ) return;
       if (message.author.bot) return;
 	if (message.channel.type === "dm") return;
 //if the message is not in a DM and the message is not from a bot...
@@ -127,7 +127,7 @@ client.on("message", (message) => {
   }
 	
 	
-}
+});
 	  
 client.on("message", (message) => {
   if (message.channel.type === "dm"){
@@ -136,18 +136,11 @@ client.on("message", (message) => {
   message.channel.send('hi');	  
 
   }
-}
+});
+
+//                                  //_________________ VVVVVVV VALIDATE MEE VVVVVVV _________________\\
 
 
-
-
-
-
-
-
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-
-//end of line 117
 //adding new code to replace the current command system
   client.on("message", message => {
   if (message.author.bot) return;
@@ -245,7 +238,7 @@ const clean = text => {
     return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
   else
       return text;
-}
+};
 // End it
           try {
           const code = args.join(" ");
@@ -269,46 +262,8 @@ client.on("message", (message) => {
   if (message.content.startsWith(prefix + "profile")||message.content === "+profile") {
     // Send the user's avatar URL
     message.reply(message.author.avatarURL);
-  }else
-
-  if (message.content === '!rip') {
-     // If the message is '!rip'
-     // Create the attachment using Attachment
-     const attachment = new Attachment('https://i.imgur.com/w3duR07.png');
-     // Send the attachment in the message channel
-     message.channel.send(attachment);
-  }else
-  if (message.content.startsWith(prefix + 'RESET')) {
-  // Restrict a command to a specific user by ID
-  if (message.author.id !== '360894787785719809') return;
-  // my Commands Here *not yours because ^^^^^^ is me and not you
-  message.channel.send('Resetting...');
-  resetBot(message.channel);
   }
 });
-
-// Create an event listener for new guild members
-client.on('guildMemberAdd', member => {
-  // Send the message to a designated channel on a server:
-  const channel = member.guild.channels.find('name', 'member-log');
-  // Do nothing if the channel wasn't found on this server
-  if (!channel) return;
-  // Send the message, mentioning the member
-  channel.send(`Hey! ${member}, Welcome to the server! right now everyone is like this guy right now--> :fukinpingme: lol`);
-  client.user.setActivity("Playing: your momn!");
-  console.log(`New member joined: ${guild.name} (id: ${guild.id}). This guild now has ${guild.memberCount} members!`);
-
-});
-client.on("guildCreate", guild => {
-  // This event triggers when the bot joins a guild.
-  console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-});
-client.on("guildDelete", guild => {
-  // this event triggers when the bot is removed from a guild.
-  console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-    
-});
-
 
 // THIS  MUST  BE  THIS  WAY XD 
 client.login(token);
