@@ -49,7 +49,7 @@ const responseObject = {
 	"mew.heist":"Pay me 300 and Ill let you go!",
 	"mew.crime":"Stop you criminal!",
 	"mew.slots":"*pling pling pling*",
-	"mew.fish":"did your rod break?"
+	"mew.fish":"did your rod break?",
 	"mew.mine":"did you pickaxe break?"
 
 };
