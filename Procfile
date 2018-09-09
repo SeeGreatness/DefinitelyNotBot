@@ -1,3 +1,3 @@
-worker: node bot.js
-worker: node evilbot.js
+REGULARBOT: node bot.js
+EVILBOT: node evilbot.js
 web: index.html
