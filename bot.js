@@ -33,6 +33,7 @@ client.on("guildDelete", guild => {
     
 });
   var i;
+  var length = 5;
 const responseObject = {
   "ayy": "Ayy, lmao!",
   "wat": "Say what?",
