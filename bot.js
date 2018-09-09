@@ -45,7 +45,10 @@ const responseObject = {
 	"+balance":"stop it your not rich",
 	"+cash":"stop it your not rich",
 	"mew.daily":"stop it your not going to be rich",
-	"+daily":"stop it your not going to be rich"
+	"+daily":"stop it your not going to be rich",
+	"mew.heist":"Pay me 300 and Ill let you go!",
+	"mew.crime":"Stop you criminal!",
+	"mew.slots":"*pling pling pling*"
 
 };
 
