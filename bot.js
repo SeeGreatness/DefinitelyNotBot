@@ -47,14 +47,11 @@ const responseObject = {
 client.on('message', message => {
   if (message.content === 'mew.play') {
     console.log("Looping! for coins!");
-    client.user.setPresence({game: {name: `Looping For Coins!`, type: 1}});
 
 for (i = 0; i < 5; i++) {
-
-message.reply(message.author.avatarURL);
-message.reply("mew.crime");
-message.reply("mew.bal");
-message.reply("mew.stop");
+client.user.setPresence({game: {name: `Looping For Coins!`, type: 1}});
+message.send("mew.crime");
+message.send("mew.bal");
 }
 client.user.setPresence({game: {name: `Done Looping!`, type: 1}});
 
