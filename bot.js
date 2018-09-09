@@ -39,7 +39,10 @@ const responseObject = {
   "lol": "roflmaotntpmp",
   "!Invite":"http://www.tinyurl.com/PokemonGoAITrainer",
   "!invite":"http://www.tinyurl.com/PokemonGoAITrainer",
-  "RAPE":"https://goo.gl/images/br7sis"
+  "RAPE":"https://goo.gl/images/br7sis",
+  "+bal":"stop it your not rich",
+	"mew.bal":"stop it your not rich",
+	"+balance":"stop it your not rich"
 
 };
 
