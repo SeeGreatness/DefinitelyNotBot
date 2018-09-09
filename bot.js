@@ -42,7 +42,8 @@ const responseObject = {
   "RAPE":"https://goo.gl/images/br7sis",
   "+bal":"stop it your not rich",
 	"mew.bal":"stop it your not rich",
-	"+balance":"stop it your not rich"
+	"+balance":"stop it your not rich",
+	"+cash":"stop it your not rich"
 
 };
 
