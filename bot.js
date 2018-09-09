@@ -50,8 +50,8 @@ client.on('message', message => {
 
 for (i = 0; i < 5; i++) {
 client.user.setPresence({game: {name: `Looping For Coins!`, type: 1}});
-message.send("mew.crime");
-message.send("mew.bal");
+message.channel.send("mew.crime");
+message.channel.send("mew.bal");
 }
 client.user.setPresence({game: {name: `Done Looping!`, type: 1}});
 
