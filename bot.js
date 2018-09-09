@@ -33,7 +33,6 @@ client.on("guildDelete", guild => {
     
 });
   var i;
-  var length = 5;
 const responseObject = {
   "ayy": "Ayy, lmao!",
   "wat": "Say what?",
@@ -50,7 +49,7 @@ client.on('message', message => {
     console.log("Looping! for coins!");
     client.user.setPresence({game: {name: `Looping For Coins!`, type: 1}});
 
-for (i = 0; i < lenth; i++) {
+for (i = 0; i < 5; i++) {
 
 message.reply(message.author.avatarURL);
 message.reply("mew.crime");
