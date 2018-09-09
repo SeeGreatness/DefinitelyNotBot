@@ -43,7 +43,9 @@ const responseObject = {
   "+bal":"stop it your not rich",
 	"mew.bal":"stop it your not rich",
 	"+balance":"stop it your not rich",
-	"+cash":"stop it your not rich"
+	"+cash":"stop it your not rich",
+	"mew.daily":"stop it your not going to be rich",
+	"+daily":"stop it your not going to be rich"
 
 };
 
