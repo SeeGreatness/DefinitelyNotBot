@@ -55,20 +55,6 @@ const responseObject = {
 };
 
 
-client.on('message', message => {
-  if (message.content === 'mew.play') {
-    console.log("Looping! for coins!");
-
-for (i = 0; i < 5; i++) {
-client.user.setPresence({game: {name: `Looping For Coins!`, type: 1}});
-message.channel.send("mew.crime");
-message.channel.send("mew.bal");
-}
-client.user.setPresence({game: {name: `Done Looping!`, type: 1}});
-
-}
-});
-
 
 //adding new code to replace the current command system
   client.on("message", message => {
